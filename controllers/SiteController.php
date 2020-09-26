@@ -136,5 +136,66 @@ class SiteController extends Controller
         return $this->render('event');
     }
 
+    /**
+     * Displays concertpage.
+     *
+     * @return string
+     */
+    public function actionConcert()
+    {
+        return $this->render('concert');
+    }
+
+    /**
+     * Displays museumpage.
+     *
+     * @return string
+     */
+    public function actionMuseum()
+    {
+        return $this->render('museum');
+    }
+
+    /**
+     * Displays codingpage.
+     *
+     * @return string
+     */
+    public function actionCoding()
+    {
+        return $this->render('coding');
+    }
+
+    /**
+     * Displays hackathonpage.
+     *
+     * @return string
+     */
+    public function actionHackathon()
+    {
+        return $this->render('hackathon');
+    }
+
+    /**
+     * Displays maskpage.
+     *
+     * @return string
+     */
+    public function actionMask()
+    {
+        return $this->render('mask');
+    }
+
+    /**
+     * Displays coachellapage.
+     *
+     * @return string
+     */
+    public function actionCoachella()
+    {
+        return $this->render('coachella');
+    }
+
+
     
 }

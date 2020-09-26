@@ -32,7 +32,6 @@ body {
 }
 
 
-
 .not-set {
     color: #c55;
     font-style: italic;
@@ -115,3 +114,12 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.column {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    padding: 20px;
+    flex: 50%;
+}
+
