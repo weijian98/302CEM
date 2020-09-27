@@ -1,7 +1,7 @@
 <?php
 
 /** @var $this yii\web\View */
-
+use yii\helpers\Url;
 $this->title = 'E-Event Ticket';
 ?>
 <div class="site-index">
@@ -9,7 +9,7 @@ $this->title = 'E-Event Ticket';
     <div class="jumbotron">
         <h1>Welcome</h1>    
         <p class="lead">View, Select and Book your event ticket now with E-Event Ticket</p>
-        <p><a class="btn btn-lg btn-danger" href="http://localhost/302CEM/web/site/event">View Available Events</a></p>
+        <p><a class="btn btn-lg btn-danger" href="<?php echo Url::to(['site/event']);?>">View Available Events</a></p>
     </div>
 
     <div class="body-content">
@@ -28,7 +28,7 @@ $this->title = 'E-Event Ticket';
             <div class="card-body">
                 <h4 class="card-title">Concert Event</h4>
                 <p class="card-text">Some example text.</p>
-                <a href="http://localhost/302CEM/web/site/concert" class="btn btn-info stretched-link">More Detail</a>
+                <a href="<?php echo Url::to(['site/concert']);?>" class="btn btn-info stretched-link">More Detail</a>
     </div>
         </div>
             </div>
@@ -39,7 +39,7 @@ $this->title = 'E-Event Ticket';
             <div class="card-body">
                 <h4 class="card-title">Musuem Event</h4>
                 <p class="card-text">Some example text.</p>
-                <a href="http://localhost/302CEM/web/site/museum" class="btn btn-info stretched-link">More Detail</a>
+                <a href="<?php echo Url::to(['site/museum']);?>" class="btn btn-info stretched-link">More Detail</a>
     </div>
         </div>
             </div>
@@ -50,7 +50,7 @@ $this->title = 'E-Event Ticket';
             <div class="card-body">
                 <h4 class="card-title">Coachella Music and Arts Event</h4>
                 <p class="card-text">Some example text.</p>
-                <a href="http://localhost/302CEM/web/site/coachella" class="btn btn-info stretched-link">More Detail</a>
+                <a href="<?php echo Url::to(['site/coachella']);?>" class="btn btn-info stretched-link">More Detail</a>
     </div>
         </div>
             </div>
@@ -65,7 +65,7 @@ $this->title = 'E-Event Ticket';
             <div class="card-body">
                 <h4 class="card-title">Coding Event</h4>
                 <p class="card-text">Some example text.</p>
-                <a href="http://localhost/302CEM/web/site/coding" class="btn btn-info stretched-link">More Detail</a>
+                <a href="<?php echo Url::to(['site/coding']);?>" class="btn btn-info stretched-link">More Detail</a>
     </div>
         </div>
             </div>
@@ -76,7 +76,7 @@ $this->title = 'E-Event Ticket';
             <div class="card-body">
                 <h4 class="card-title">Hackathon Event</h4>
                 <p class="card-text">Located in London, United Kingdom</p>
-                <a href="http://localhost/302CEM/web/site/hackathon" class="btn btn-info stretched-link">More Detail</a>
+                <a href="<?php echo Url::to(['site/hackathon']);?>" class="btn btn-info stretched-link">More Detail</a>
     </div>
         </div>
             </div>
@@ -87,7 +87,7 @@ $this->title = 'E-Event Ticket';
             <div class="card-body">
                 <h4 class="card-title">Japanese Theater and Festival Mask Event</h4>
                 <p class="card-text">Located at Edo Wonderladn, Nikkō-shi, Japan</p>
-                <a href="http://localhost/302CEM/web/site/mask" class="btn btn-info stretched-link">More Detail</a>
+                <a href="<?php echo Url::to(['site/mask']);?>" class="btn btn-info stretched-link">More Detail</a>
     </div>
         </div>
             </div>

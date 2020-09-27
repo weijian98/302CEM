@@ -1,8 +1,9 @@
 <?php
 
 /* @var $this yii\web\View */
-
+use yii\helpers\Url;
 $this->title = 'E-Event Ticket';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-concert">
@@ -33,7 +34,7 @@ $this->title = 'E-Event Ticket';
                 <p> Genting Malaysia Bhd.<br>
                  Address: 18th Floor, Wisma Genting, 28 Jalan Sultan Ismail, 50520 Kuala Lumpur, Malaysia. <br>
                  Contact: +603-2718 1118 </p> 
-                <a href="#" class="btn btn-success stretched-link" style="width:100%">Find Tickets</a>
+                <a href="<?php echo Url::to(['site/booking']);?>" class="btn btn-success stretched-link" style="width:100%">Find Tickets</a>
             </div>
     </div>
 </div>

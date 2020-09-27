@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+
 use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -30,7 +31,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'E-Event Ticket',
-        'brandUrl' => 'http://localhost:8888/302CEM%20-%201/302CEM/web/',
+        'brandUrl' => array('/site/index'),
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],

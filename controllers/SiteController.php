@@ -195,7 +195,10 @@ class SiteController extends Controller
     {
         return $this->render('coachella');
     }
-
+    public function actionBooking()
+    {
+        return $this->render('booking');
+    }
 
     
 }
