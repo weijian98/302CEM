@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 use yii\helpers\Url;
 $this->title = 'E-Event Ticket';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-concert">
