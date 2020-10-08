@@ -15,7 +15,7 @@ $this->title = 'E-Event Ticket';
     <div class="body-content">
 
     <div class="jumbotron">
-        <h2>Popular Events October - November 2020</h2>    
+        <h2>Popular Events on October - November 2020</h2>    
  
     </div> 
     
