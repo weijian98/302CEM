@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <b><?= Html::Input('number','pax', "",$options=['class'=>'form-control', 'maxlength'=>10, 'style'=>'width:350px']) ?></b><br>
     <b><?= Html::label('Ticket Choice', 'ticketlist') ?></b>
     <b><?= Html::dropDownList('ticketlist', "", Array("VIP","PS1","PS2")) ?></b><br>
-    <br><b><?= Html::submitButton('Search for ticket',['class' => 'submit']) ?></b>
+    <br><b><?= Html::submitButton('Make payment',['class' => 'submit']) ?></b>
 
 
 </p>
