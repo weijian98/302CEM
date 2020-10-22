@@ -200,5 +200,9 @@ class SiteController extends Controller
         return $this->render('booking');
     }
 
+    public function actionPayment(){
+        return $this -> render('payment');
+    }
+
     
 }
