@@ -46,12 +46,12 @@ AppAsset::register($this);
             ['label' => 'Contact Us', 'url' => ['/site/contact']],
             ['label' => 'SignUp', 'url' => ['/site/signup'], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => 'LogIn', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    'LogOut (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()

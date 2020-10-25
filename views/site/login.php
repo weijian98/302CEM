@@ -34,10 +34,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="form-group">
             <div class="col-lg-offset-1 col-lg-11">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button','style'=>'width:8%;']) ?>
+                <?= Html::submitButton('SignIn', ['class' => 'btn btn-primary', 'name' => 'login-button','style'=>'width:8%;']) ?>
                 <?= Html::a('SignUp', ['/site/signup'], ['class'=>'btn btn-primary','style'=>'width:8%;']) ?>
             </div>
         </div>
-
+        <div>admin:- username:admin, password:adminadmin</div>
+        <div>demo;- username:demo, password:demodemo</div>
     <?php ActiveForm::end(); ?>
 </div>
