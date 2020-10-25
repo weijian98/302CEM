@@ -83,17 +83,7 @@ class User extends ActiveRecord implements IdentityInterface
         return static::findOne(['username' => $username]);
 
     }
-    /**
-     * {@inheritdoc}
-     */
-    /*public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'username' => 'Username',
-            'password' => 'Password',
-        ];
-    }*/
+    
     /**
      * {@inheritdoc}
      */
@@ -126,7 +116,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function validatePassword($password)
     {
-        return Yii::$app->security()->validatePassword($password, $this->password_hash);
+        return Yii::$app->security()->validatePassword($password);
     }
 
     /**
