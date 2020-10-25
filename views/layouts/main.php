@@ -42,15 +42,16 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Event', 'url' => ['/site/event']],
-            ['label' => 'Book Event', 'url' => ['/site/bookEvent']],
+            ['label' => 'Book Event', 'url' => ['/site/bookEvent'], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Contact Us', 'url' => ['/site/contact']],
+            ['label' => 'SignUp', 'url' => ['/site/signup'], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => 'LogIn', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    'LogOut (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()

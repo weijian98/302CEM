@@ -35,6 +35,12 @@ class BookingController extends Controller
      */
     public function actionIndex()
     {
+        if(Yii::$app->user->isGuest){
+            return $this->redirect(['site/index']);
+            }
+           else if(Yii::$app->user->identity->roles != "admin"){
+               return $this->redirect(['site/index']);
+           }
         $searchModel = new BookingSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
