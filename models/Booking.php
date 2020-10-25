@@ -14,6 +14,10 @@ use Yii;
  */
 class Booking extends \yii\db\ActiveRecord
 {
+    public $booking_id;
+    public $booking_info_id;
+    public $booking_date;
+    public $ticket_id;
     /**
      * {@inheritdoc}
      */
@@ -33,6 +37,16 @@ class Booking extends \yii\db\ActiveRecord
             [['booking_date'], 'safe'],
         ];
     }
+
+    public function makeBooking ($attribute, $params) {
+
+        $booking = new Booking();
+        $booking ->booking_id = $this->booking_id;
+        $booking ->booking_date = $this->booking_date;
+        $booking ->booking_info_id = $this->booking_info_id;
+        return $booking ->save();
+    }
+
 
     /**
      * {@inheritdoc}
