@@ -149,7 +149,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionBookEvent()
+    public function actionBookevent()
     {
         return $this->render('bookEvent');
     }
