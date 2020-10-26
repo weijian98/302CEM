@@ -80,7 +80,10 @@ class BookingController extends Controller
             'model' => $model,
         ]);
     }
-
+    public function actionAttendees()
+    {
+        return $this->render('attendees');
+    }
     /**
      * Updates an existing Booking model.
      * If update is successful, the browser will be redirected to the 'view' page.

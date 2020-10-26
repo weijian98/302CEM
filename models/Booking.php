@@ -47,13 +47,4 @@ class Booking extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function getDb(){
-        $database = "agile";
-        return Yii::$database;
-    }
-
-    public static function setDatabase($database)
-    {
-        self::$database = $database;
-    }
 }
