@@ -115,6 +115,14 @@ class BookingController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionTest()
+    {
+      
+    }
+
+    
+
+
     /**
      * Finds the Booking model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -130,4 +138,6 @@ class BookingController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    
 }

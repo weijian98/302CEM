@@ -46,4 +46,14 @@ class Booking extends \yii\db\ActiveRecord
             'ticket_id' => 'Ticket ID',
         ];
     }
+
+    public static function getDb(){
+        $database = "agile";
+        return Yii::$database;
+    }
+
+    public static function setDatabase($database)
+    {
+        self::$database = $database;
+    }
 }
