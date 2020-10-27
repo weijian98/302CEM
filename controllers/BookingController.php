@@ -80,7 +80,10 @@ class BookingController extends Controller
             'model' => $model,
         ]);
     }
-
+    public function actionAttendees()
+    {
+        return $this->render('attendees');
+    }
     /**
      * Updates an existing Booking model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -115,6 +118,14 @@ class BookingController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionTest()
+    {
+      
+    }
+
+    
+
+
     /**
      * Finds the Booking model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -130,4 +141,6 @@ class BookingController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    
 }

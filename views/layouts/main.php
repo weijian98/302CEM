@@ -42,7 +42,7 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Event', 'url' => ['/site/event']],
-            ['label' => 'Book Event', 'url' => ['/site/bookEvent'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Book Event', 'url' => ['/site/bookevent'], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Contact Us', 'url' => ['/site/contact']],
             ['label' => 'SignUp', 'url' => ['/site/signup'], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (

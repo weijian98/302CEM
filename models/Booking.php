@@ -60,4 +60,5 @@ class Booking extends \yii\db\ActiveRecord
             'ticket_id' => 'Ticket ID',
         ];
     }
+
 }
