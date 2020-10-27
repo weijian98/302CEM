@@ -24,7 +24,7 @@ if($booking != null ) {
 }?>
 
 <div class="jumbotron" style="color:black">
-    <h2><strong>Your List of Booked Event</strong></h2> <hr> <br>
+    <h2><strong>Your List of Booked Events</strong></h2> <hr> <br>
     
     <div class="body-content">
         
