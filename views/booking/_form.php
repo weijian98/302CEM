@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'booking_date')->textInput() ?>
 
-    <?= $form->field($model, 'ticket_id')->textInput() ?>
+    <?= $form->field($model, 'ticket_count')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

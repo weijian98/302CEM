@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'booking_id',
             'booking_info_id',
             'booking_date',
-            'ticket_id',
+            'ticket_count',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -10,7 +10,7 @@ use Yii;
  * @property int $booking_id
  * @property int $booking_info_id
  * @property string $booking_date
- * @property int $ticket_id
+ * @property int $ticket_count
  */
 class Booking extends \yii\db\ActiveRecord
 {
@@ -28,8 +28,8 @@ class Booking extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['booking_info_id', 'ticket_id'], 'required'],
-            [['booking_info_id', 'ticket_id'], 'integer'],
+            [['booking_info_id', 'ticket_count'], 'required'],
+            [['booking_info_id', 'ticket_count'], 'integer'],
             [['booking_date'], 'safe'],
         ];
     }
@@ -43,8 +43,7 @@ class Booking extends \yii\db\ActiveRecord
             'booking_id' => 'Booking ID',
             'booking_info_id' => 'Booking Info ID',
             'booking_date' => 'Booking Date',
-            'ticket_id' => 'Ticket ID',
+            'ticket_count' => 'Ticket Count',
         ];
     }
-
 }
