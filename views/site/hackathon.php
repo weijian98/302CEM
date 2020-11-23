@@ -1,8 +1,9 @@
 <?php
 
 /* @var $this yii\web\View */
-
+use yii\helpers\Url;
 $this->title = 'E-Event Ticket';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-hackathon">
@@ -31,7 +32,7 @@ $this->title = 'E-Event Ticket';
                 <b style="font-size:16px">Event Organizer</b>
                 <p> Gallus Events<br>
                  Address: Barcelona, ESD</p> 
-                <a href="#" class="btn btn-success stretched-link" style="width:100%">Find Tickets</a>
+                <a href="<?php echo Url::to(['site/booking']);?>" class="btn btn-success stretched-link" style="width:100%">Find Tickets</a>
             </div>
     </div>
 </div>

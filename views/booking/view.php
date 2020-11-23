@@ -32,7 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'booking_id',
             'booking_info_id',
             'booking_date',
-            'ticket_id',
+            'time',
+            'pax_total',
+            'seat_number_row',
+            'ticket_count',
         ],
     ]) ?>
 

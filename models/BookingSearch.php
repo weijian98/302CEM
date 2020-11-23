@@ -17,7 +17,7 @@ class BookingSearch extends Booking
     public function rules()
     {
         return [
-            [['booking_id', 'booking_info_id', 'ticket_id'], 'integer'],
+            [['booking_id', 'booking_info_id', 'ticket_count'], 'integer'],
             [['booking_date'], 'safe'],
         ];
     }
@@ -61,7 +61,7 @@ class BookingSearch extends Booking
             'booking_id' => $this->booking_id,
             'booking_info_id' => $this->booking_info_id,
             'booking_date' => $this->booking_date,
-            'ticket_id' => $this->ticket_id,
+            'ticket_count' => $this->ticket_count,
         ]);
 
         return $dataProvider;

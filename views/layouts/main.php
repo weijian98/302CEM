@@ -44,7 +44,6 @@ AppAsset::register($this);
             ['label' => 'Event', 'url' => ['/site/event']],
             ['label' => 'Book Event', 'url' => ['/site/bookevent'], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Contact Us', 'url' => ['/site/contact']],
-            ['label' => 'SignUp', 'url' => ['/site/signup'], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
                 ['label' => 'LogIn', 'url' => ['/site/login']]
             ) : (
