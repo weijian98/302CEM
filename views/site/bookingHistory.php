@@ -58,7 +58,7 @@ $this->title = 'Booking History Details';
                 echo "------------------------------------------------------<br>";
                 }
                 }else{
-                    echo "No up coming booking found";
+                    echo "No booking history found";
                 }
                 ?>
 

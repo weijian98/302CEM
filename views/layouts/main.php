@@ -2,7 +2,7 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
+use app\models\User;
 
 use app\widgets\Alert;
 use yii\helpers\Html;
@@ -36,6 +36,22 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    if(!Yii::$app->user->isGuest){
+        $user = User::findOne(Yii::$app->user->identity->id);
+    }
+    if(Yii::$app->user->isGuest){
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'About', 'url' => ['/site/about']],
+                ['label' => 'Event', 'url' => ['/site/event']],
+                ['label' => 'Contact Us', 'url' => ['/site/contact']],
+                ['label' => 'Signup', 'url' => ['/site/signup']],
+                ['label' => 'LogIn', 'url' => ['/site/login']]
+            ],
+        ]);
+    }else if($user->roles == "user"){
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
@@ -59,6 +75,27 @@ AppAsset::register($this);
             )
         ],
     ]);
+    }else if($user->roles == "admin"){
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'About', 'url' => ['/site/about']],
+                Yii::$app->user->isGuest ? (
+                ['label' => 'LogIn', 'url' => ['/site/login']]
+                ) : (
+                    '<li>'
+                    . Html::beginForm(['/site/logout'], 'post')
+                    . Html::submitButton(
+                        'LogOut (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'btn btn-link logout']
+                    )
+                    . Html::endForm()
+                    . '</li>'
+                )
+            ],
+        ]);
+    }
     NavBar::end();
     ?>
 
