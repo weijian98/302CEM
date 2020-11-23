@@ -14,24 +14,26 @@ $this->title = 'Booking History Details';
 
     <?php
     //$sql = 'select * from booking order by id DESC';
-    $booking=Booking::findAll([
+    $booking = Booking::findAll([
         'user_id' => Yii::$app->user->identity->id,
     ]);
     $print1 = [];
-    if($booking != null ) {
-        foreach ($booking as $row){
-            $print1[] =$row;
+    if ($booking != null) {
+        foreach ($booking as $row) {
+            $print1[] = $row;
         }
         $booking1count = count($print1);
-    }?>
+    } ?>
 
     <div class="jumbotron" style="color:black">
-        <h2><strong>Booking History</strong></h2> <hr> <br>
+        <h2><strong>Booking History</strong></h2>
+        <hr>
+        <br>
 
         <div class="body-content">
 
             <?php
-            if(isset($booking1count)){
+            if (isset($booking1count)){
             for ($i = 0;
             $i < $booking1count;
             $i++){
@@ -57,7 +59,7 @@ $this->title = 'Booking History Details';
                 echo "Payment Method: " . $print1[$i]['payment_method'] . "<br>";
                 echo "------------------------------------------------------<br>";
                 }
-                }else{
+                } else {
                     echo "No booking history found";
                 }
                 ?>
