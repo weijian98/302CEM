@@ -1,32 +1,46 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Yuan Shen
- * Date: 27/9/2020
- * Time: 3:12 PM
- */
-/* @var $model app\models\Booking */
-use yii\helpers\Html;
 
-$this->title = 'Find Ticket';
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap4\ActiveForm */
+/* @var $model \app\models\BookForm */
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use yii\jui\DatePicker;
+$this->title = 'Book Slot';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-booking">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= Html::beginForm(['site/index'], 'post', ['enctype' => 'multipart/form-data']) ?>
-<p>
-    <b><?= Html::label('Date', 'ticketdate') ?></b>
-    <b><?= Html::Input('date','ticketdate', "",$options=['class'=>'form-control', 'maxlength'=>10, 'style'=>'width:350px']) ?></b><br>
-    <b><?= Html::label('Pax', 'pax') ?></b>
-    <b><?= Html::Input('number','pax', "",$options=['class'=>'form-control', 'maxlength'=>10, 'style'=>'width:350px']) ?></b><br>
-    <b><?= Html::label('Ticket Choice', 'ticketlist') ?></b>
-    <b><?= Html::dropDownList('ticketlist', "", Array("VIP","PS1","PS2")) ?></b><br>
-    <br><b><?= Html::submitButton('Search for ticket',['class' => 'submit']) ?></b>
+    <p>Please fill out the following fields to book your slot:</p>
 
+    <div class="row">
+        <div class="col-lg-5">
+            <?php $form = ActiveForm::begin(['id' => 'form-booking']); ?>
 
-</p>
-    <?= Html::endForm() ?>
-<code><?= __FILE__ ?></code>
+                <?= $form->field($model, 'booking_date')->widget(\yii\jui\DatePicker::classname(), [
+                    'clientOptions' =>[
+                        'dateFormat' => 'yyyy-MM-dd',
+                        'maxDate' => '+2w',
+                        'minDate' => '+1d',
+                    ],
+                    'options' => ['class' => 'form-control']])?>
+
+                <?= $form->field($model, 'pax_total') ->dropDownList(['1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9'])?>
+                
+                <?= $form->field($model, 'time') ->dropDownList(['10:30'=>'10:30','14:30'=>'14:30','18:30'=>'18:30'])?>
+
+                <?= $form->field($model, 'seat_number_row') ->dropDownList(['A'=>'A','B'=>'B','C'=>'C','D'=>'D','E'=>'E','F'=>'F','G'=>'G','H'=>'H','I'=>'I'])?>
+
+                <?= $form->field($model, 'payment_method') ->dropDownList(['GrabPay'=>'GrabPay','Boost'=>'Boost','T&G'=>'Touch & Go','Online Banking'=>'Online Banking'])?>
+
+                <div class="form-group">
+                    <?= Html::submitButton('Book Now', ['class' => 'btn btn-primary', 'name' => 'book-button']) ?>
+                </div>
+
+            <?php ActiveForm::end(); ?>
+        </div>
+    </div>
 </div>

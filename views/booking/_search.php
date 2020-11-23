@@ -21,7 +21,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'booking_date') ?>
 
-    <?= $form->field($model, 'ticket_id') ?>
+    <?= $form->field($model, 'booking_date')-?>
+
+    <?= $form->field($model, 'pax_total') ?>
+                
+    <?= $form->field($model, 'time')?>
+
+    <?= $form->field($model, 'seat_number_row') ?>
+
+    <?= $form->field($model, 'payment_method') ?>
+
+    <?= $form->field($model, 'ticket_count') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

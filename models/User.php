@@ -14,6 +14,7 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $verification_token
  * @property string $email
+ * @property string $roles
  * @property string $auth_key
  * @property integer $status
  * @property integer $created_at

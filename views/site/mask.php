@@ -1,8 +1,9 @@
 <?php
 
 /* @var $this yii\web\View */
-
+use yii\helpers\Url;
 $this->title = 'E-Event Ticket';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-mask">
@@ -34,7 +35,7 @@ Whether you're into traditional Japanese masks or contemporary creations, the To
                 <p>Hyuga Tourism Association<br>
                 Address: 1 Uemachi, Hyuga-shi, Miyazaki<br>
                 Contact: 0982-55-0235</p> 
-                <a href="#" class="btn btn-success stretched-link" style="width:100%">Find Tickets</a>
+                <a href="<?php echo Url::to(['site/booking']);?>" class="btn btn-success stretched-link" style="width:100%">Find Tickets</a>
             </div>
     </div>
 </div>
