@@ -155,6 +155,16 @@ class SiteController extends Controller
         return $this->render('bookEvent');
     }
 
+    /**
+     * Displays bookhistorypage.
+     *
+     * @return string
+     */
+    public function actionBookinghistory()
+    {
+        return $this->render('Bookinghistory');
+    }
+
 
     /**
      * Displays concertpage.

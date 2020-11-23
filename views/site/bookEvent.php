@@ -14,7 +14,9 @@ $this->title = 'Book Event Details';
 
 <?php
 //$sql = 'select * from booking order by id DESC';
-$booking=Booking::find()->all();
+$booking=Booking::findAll([
+    'user_id' => Yii::$app->user->identity->id,
+]);
 $print1 = [];
 if($booking != null ) {
     foreach ($booking as $row){
@@ -29,24 +31,36 @@ if($booking != null ) {
     <div class="body-content">
         
         <?php
-        for($i =0; $i < $booking1count;$i++){?>
-        
-        <div class="<?php echo $print1[$i]['booking_id']; ?>" class="<?php if ($i != 0){echo 'panel-collapse collapse';} else {echo 'panel-collapse collapse in';}?>">
-        
-        <div style="color:teal"><br></div>
-        
-        <div class="row"></div>
- 
+        if(isset($booking1count)){
+        for ($i = 0;
+        $i < $booking1count;
+        $i++){
+        if ($print1[$i]['booking_date'] >= date('Y-m-d')) {
+        ?>
 
-<?php
+        <div class="<?php echo $print1[$i]['booking_id']; ?>" class="<?php if ($i != 0) {
+            echo 'panel-collapse collapse';
+        } else {
+            echo 'panel-collapse collapse in';
+        } ?>">
 
-echo "Date of Booked Event: ".$print1[$i]['booking_date']. "<br>";
-echo "Pax Total: ".$print1[$i]['pax_total']. "<br>";
-echo "Time: ".$print1[$i]['time']. "<br>";
-echo "Seat Row: ".$print1[$i]['seat_number_row']. "<br>";
-echo "Payment Method: ".$print1[$i]['payment_method']. "<br>";
-echo "------------------------------------------------------<br>";
-}
+            <div style="color:teal"><br></div>
+
+            <div class="row"></div>
+
+
+            <?php
+
+            echo "Date of Booked Event: " . $print1[$i]['booking_date'] . "<br>";
+            echo "Pax Total: " . $print1[$i]['pax_total'] . "<br>";
+            echo "Time: " . $print1[$i]['time'] . "<br>";
+            echo "Seat Row: " . $print1[$i]['seat_number_row'] . "<br>";
+            echo "Payment Method: " . $print1[$i]['payment_method'] . "<br>";
+            echo "------------------------------------------------------<br>";
+            } }
+            }else{
+            echo "No up coming booking found";
+            }
 ?>
 
 

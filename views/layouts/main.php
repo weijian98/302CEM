@@ -42,7 +42,8 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Event', 'url' => ['/site/event']],
-            ['label' => 'Book Event', 'url' => ['/site/bookevent'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Upcoming Event', 'url' => ['/site/bookevent'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Booking History', 'url' => ['/site/bookinghistory'], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Contact Us', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'LogIn', 'url' => ['/site/login']]
