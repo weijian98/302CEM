@@ -14,6 +14,7 @@ use yii\web\IdentityInterface;
  * @property int $pax_total 
  * @property int $time
  * @property string $seat_number_row
+ * @property string $payment_method
  * @property int $ticket_count
  * @property int $ticket_id
  * @property int $user_id

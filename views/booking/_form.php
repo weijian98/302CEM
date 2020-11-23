@@ -27,6 +27,8 @@ use yii\jui\DatePicker;
 
     <?= $form->field($model, 'seat_number_row') ->dropDownList(['A'=>'A','B'=>'B','C'=>'C','D'=>'D','E'=>'E','F'=>'F','G'=>'G','H'=>'H','I'=>'I'])?>
 
+    <?= $form->field($model, 'payment_method') ->dropDownList(['GrabPay'=>'GrabPay','Boost'=>'Boost','T&G'=>'Touch & Go','Online Banking'=>'Online Banking'])?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
