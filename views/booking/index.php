@@ -29,6 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'booking_id',
             'booking_info_id',
             'booking_date',
+            'time',
+            'pax_total',
+            'seat_number_row',
             'ticket_count',
 
             ['class' => 'yii\grid\ActionColumn'],

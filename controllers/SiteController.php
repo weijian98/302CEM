@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SignupForm;
+use app\models\BookForm;
 
 class SiteController extends Controller
 {
@@ -214,12 +215,8 @@ class SiteController extends Controller
     {
         return $this->render('coachella');
     }
-    public function actionBooking()
-    {
-        return $this->render('booking');
-    }
 	
-	    public function actionPayment()
+	public function actionPayment()
     {
         return $this->render('payment');
     }
@@ -278,6 +275,27 @@ class SiteController extends Controller
 
         return $this->render('resendVerificationEmail', [
             'model' => $model
+        ]);
+    }
+
+    /**
+     * Displays eventpage.
+     *
+     * @return mixed
+     */
+    public function actionBooking()
+    {
+        $model = new BookForm();
+        if ($model->load(Yii::$app->request->post())){
+            if($model->booking()){
+                Yii::$app->session->setFlash('success', 'Your appointment has successfully book.');
+                return $this->goHome();     
+            }else{
+                Yii::$app->session->setFlash('error', 'Unable to make appointment');
+            }
+        }
+        return $this->render('booking', [
+            'model' => $model,
         ]);
     }
     
