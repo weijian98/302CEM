@@ -65,11 +65,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $announcement = (new \yii\db\Query())
-            ->select(['title','text'])
-            ->from('announcement');
-
-
         return $this->render('index');
     }
 
@@ -148,11 +143,6 @@ class SiteController extends Controller
     public function actionEvent()
     {
         return $this->render('event');
-    }
-
-    public function actionAnnouncement()
-    {
-        return $this->render('announcement');
     }
 
         /**
