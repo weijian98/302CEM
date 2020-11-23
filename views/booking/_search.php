@@ -29,6 +29,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'seat_number_row') ?>
 
+    <?= $form->field($model, 'payment_method') ?>
+
     <?= $form->field($model, 'ticket_count') ?>
 
     <div class="form-group">

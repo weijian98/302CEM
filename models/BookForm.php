@@ -16,6 +16,7 @@ class BookForm extends Model
     public $pax_total;
     public $time;
     public $seat_number_row;
+    public $payment_method;
     public $ticket_count;
     public $ticket_id;
     public $user_id;
@@ -27,7 +28,7 @@ class BookForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['booking_info_id','booking_date', 'ticket_count', 'ticket_id', 'pax_total', 'time', 'seat_number_row'], 'required'],
+            [['booking_info_id','booking_date', 'ticket_count', 'ticket_id', 'pax_total', 'time', 'seat_number_row', 'payment_method'], 'required'],
         ];
     }
     
@@ -46,6 +47,7 @@ class BookForm extends Model
             $booking->pax_total = $this->pax_total;
             $booking->time = $this->time;
             $booking->seat_number_row = $this->seat_number_row;
+            $booking->payment_method = $this->payment_method;
             $booking->user_id = Yii::$app->user->identity->id;
 
             return $booking->save();

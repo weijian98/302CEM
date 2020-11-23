@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'time',
             'pax_total',
             'seat_number_row',
+            'payment_method',
             'ticket_count',
         ],
     ]) ?>

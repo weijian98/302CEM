@@ -15,6 +15,7 @@ use Yii;
  * @property int $pax_total 
  * @property int $time
  * @property string $seat_number_row
+ * @property string $payment_method
  * @property User $user
  */
 class Booking extends \yii\db\ActiveRecord
@@ -52,6 +53,7 @@ class Booking extends \yii\db\ActiveRecord
             'pax_total'=>'Pax',
             'time'=>'Time',
             'seat_number_row'=>'Seat Row',
+            'payment_method'=>'Payment Method',
             'ticket_count' => 'Ticket Count',
             'user_id' => 'User ID',
         ];
