@@ -33,19 +33,22 @@ if($booking != null ) {
         
         <div class="<?php echo $print1[$i]['booking_id']; ?>" class="<?php if ($i != 0){echo 'panel-collapse collapse';} else {echo 'panel-collapse collapse in';}?>">
         
-        <div style="color:teal"><br><h2><strong> Book Event Details </strong></h2></div>
+        <div style="color:teal"><br></div>
         
-        <div class="row">
+        <div class="row"></div>
  
 
 <?php
 
-echo "Booking ID: ".$print1[$i]['booking_id']."<br>" ; 
-echo "Booking Info: ".$print1[$i]['booking_info_id']. "<br>";
 echo "Date of Booked Event: ".$print1[$i]['booking_date']. "<br>";
-echo "Ticket ID: ".$print1[$i]['ticket_id']. "<br> <br><hr>";
+echo "Pax Total: ".$print1[$i]['pax_total']. "<br>";
+echo "Time: ".$print1[$i]['time']. "<br>";
+echo "Seat Row: ".$print1[$i]['seat_number_row']. "<br>";
+echo "Payment Method: ".$print1[$i]['payment_method']. "<br>";
+echo "------------------------------------------------------<br>";
 }
 ?>
+
 
 </div>
 </div>
