@@ -13,6 +13,7 @@ use Yii;
  * @property string $event_time
  * @property string $event_duration
  * @property int $event_totalseats
+edit and * @property string $attendees
  */
 class Event extends \yii\db\ActiveRecord
 {
@@ -30,10 +31,11 @@ class Event extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['event_date', 'event_location', 'event_time', 'event_duration', 'event_totalseats'], 'required'],
+            [['event_id', 'event_date', 'event_location', 'event_time', 'event_duration', 'event_totalseats', 'attendees'], 'required'],
+            [['event_id', 'event_totalseats'], 'integer'],
             [['event_date', 'event_time', 'event_duration'], 'safe'],
-            [['event_totalseats'], 'integer'],
             [['event_location'], 'string', 'max' => 52],
+            [['attendees'], 'string', 'max' => 25],
         ];
     }
 
@@ -49,6 +51,7 @@ class Event extends \yii\db\ActiveRecord
             'event_time' => 'Event Time',
             'event_duration' => 'Event Duration',
             'event_totalseats' => 'Event Totalseats',
+            'attendees' => 'Attendees',
         ];
     }
 }

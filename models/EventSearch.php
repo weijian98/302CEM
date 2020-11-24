@@ -18,7 +18,7 @@ class EventSearch extends Event
     {
         return [
             [['event_id', 'event_totalseats'], 'integer'],
-            [['event_date', 'event_location', 'event_time', 'event_duration'], 'safe'],
+            [['event_date', 'event_location', 'event_time', 'event_duration', 'attendees'], 'safe'],
         ];
     }
 
@@ -65,7 +65,8 @@ class EventSearch extends Event
             'event_totalseats' => $this->event_totalseats,
         ]);
 
-        $query->andFilterWhere(['like', 'event_location', $this->event_location]);
+        $query->andFilterWhere(['like', 'event_location', $this->event_location])
+            ->andFilterWhere(['like', 'attendees', $this->attendees]);
 
         return $dataProvider;
     }

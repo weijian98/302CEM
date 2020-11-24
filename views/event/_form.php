@@ -11,20 +11,20 @@ use yii\widgets\ActiveForm;
 <div class="event-form">
 
     <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($model, 'event_date')->textInput([
-        'type' => 'date']) ?>
+
+    <?= $form->field($model, 'event_id')->textInput() ?>
+
+    <?= $form->field($model, 'event_date')->textInput() ?>
+
     <?= $form->field($model, 'event_location')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'event_time')->textInput([
-        'type' => 'time']) ?>
+    <?= $form->field($model, 'event_time')->textInput() ?>
 
-    <?= $form->field($model, 'event_duration')->textInput([
-        'type' => 'time'
-    ]) ?>
+    <?= $form->field($model, 'event_duration')->textInput() ?>
 
-    <?= $form->field($model, 'event_totalseats')->textInput([
-        'type' => 'number'
-    ]) ?>
+    <?= $form->field($model, 'event_totalseats')->textInput() ?>
+
+    <?= $form->field($model, 'attendees')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
