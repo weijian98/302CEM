@@ -27,13 +27,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'booking_id',
-            'booking_info_id',
             'booking_date',
-            'time',
             'pax_total',
-            'seat_number_row',
-            'payment_method',
-            'ticket_count',
+            'event_id',
+            'time',
+            //'seat_number_row',
+            //'payment_method',
+            //'user_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
