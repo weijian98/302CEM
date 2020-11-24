@@ -47,6 +47,7 @@ AppAsset::register($this);
                 ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'Event', 'url' => ['/site/event']],
                 ['label' => 'Contact Us', 'url' => ['/site/contact']],
+                ['label' => 'Announcements', 'url' => ['/site/announcement']],
                 ['label' => 'Signup', 'url' => ['/site/signup']],
                 ['label' => 'LogIn', 'url' => ['/site/login']]
             ],
@@ -84,6 +85,7 @@ AppAsset::register($this);
                 ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'Manage Event', 'url' => ['/event']],
                 ['label' => 'Manage Booking', 'url' => ['/booking']],
+                ['label' => 'Announcements', 'url' => ['/site/announcement']],
                 Yii::$app->user->isGuest ? (
                 ['label' => 'LogIn', 'url' => ['/site/login']]
                 ) : (
