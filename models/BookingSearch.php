@@ -56,20 +56,21 @@ class BookingSearch extends Booking
             return $dataProvider;
         }
 
-       // grid filtering conditions
-       $query->andFilterWhere([
-        'booking_id' => $this->booking_id,
-        'booking_date' => $this->booking_date,
-        'pax_total' => $this->pax_total,
-        'event_id' => $this->event_id,
-        'user_id' => $this->user_id,
-    ]);
+        // grid filtering conditions
+        $query->andFilterWhere([
+            'booking_id' => $this->booking_id,
+            'booking_date' => $this->booking_date,
+            'pax_total' => $this->pax_total,
+            'event_id' => $this->event_id,
+            'user_id' => $this->user_id,
+        ]);
 
-    $query->andFilterWhere(['like', 'time', $this->time])
-        ->andFilterWhere(['like', 'seat_number_row', $this->seat_number_row])
-        ->andFilterWhere(['like', 'payment_method', $this->payment_method]);
+        $query->andFilterWhere(['like', 'time', $this->time])
+            ->andFilterWhere(['like', 'seat_number_row', $this->seat_number_row])
+            ->andFilterWhere(['like', 'payment_method', $this->payment_method]);
 
-    return $dataProvider;
+        return $dataProvider;
+    }
 }
-}
+
 

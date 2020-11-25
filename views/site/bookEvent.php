@@ -23,6 +23,7 @@ $this->title = 'Book Event Details';
             $print1[] = $row;
         }
         $booking1count = count($print1);
+
     } ?>
 
     <div class="jumbotron" style="color:black">

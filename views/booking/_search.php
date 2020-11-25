@@ -17,19 +17,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'booking_id') ?>
 
-    <?= $form->field($model, 'booking_info_id') ?>
-
     <?= $form->field($model, 'booking_date') ?>
 
     <?= $form->field($model, 'pax_total') ?>
-                
-    <?= $form->field($model, 'time')?>
 
-    <?= $form->field($model, 'seat_number_row') ?>
+    <?= $form->field($model, 'event_id') ?>
 
-    <?= $form->field($model, 'payment_method') ?>
+    <?= $form->field($model, 'time') ?>
 
-    <?= $form->field($model, 'ticket_count') ?>
+    <?php // echo $form->field($model, 'seat_number_row') ?>
+
+    <?php // echo $form->field($model, 'payment_method') ?>
+
+    <?php // echo $form->field($model, 'user_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

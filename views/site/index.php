@@ -2,6 +2,8 @@
 
 /** @var $this yii\web\View */
 use yii\helpers\Url;
+use app\models\Event;
+use app\models\Booking;
 $this->title = 'E-Event Ticket';
 
 
@@ -51,7 +53,7 @@ $this->title = 'E-Event Ticket';
     <div class="body-content">
 
     <div class="jumbotron">
-        <h2>Popular Events October - November 2020</h2>
+        <h2>Popular Events</h2>
 
     </div>
 
@@ -59,19 +61,65 @@ $this->title = 'E-Event Ticket';
 
     <!-- Card Events Display  -->
     <div class="container">
+        <?php
+        $event = Event::find()
+            ->all();
+        $print1 = [];
+        if ($event != null) {
+            foreach ($event as $row) {
+                $print1[] = $row;
+            }
+            $eventcount = count($print1);
+        } ?>
+        <?php
+        if($eventcount >6){
+            $eventcount = 6;
+        }
+        if (isset($eventcount)){
+        for ($i = 0;
+        $i < $eventcount;
+        $i++){
+
+        $booking = Booking::findAll([
+            'event_id' =>  $print1[$i]['event_id'],
+        ]);
+        $print2 = [];
+        $countPax = 0;
+        if (isset($booking)) {
+            foreach ($booking as $row) {
+                $print2[] = $row;
+            }
+            $booking1count = count($print2);
+            for ($i1 = 0;
+                 $i1 < $booking1count;
+                 $i1++) {
+                $countPax = $countPax + $print2[$i1]['pax_total'];
+            }}
+        ?>
         <div class="row">
             <div class="col-12 col-lg-4">
                 <div class="card" style="width:fit-content" >
-                    <img class="card-img-top" src="https://source.unsplash.com/JNuKyKXLh8U/350x300" alt="Card image">
+                    <img class="card-img-top" >
+                    <?php echo  $print1[$i]['event_picture']?>
                     <div class="card-body">
-                        <h4 class="card-title">Concert Event</h4>
-                        <p class="card-text">Some example text.</p>
-                        <a href="<?php echo Url::to(['site/concert']);?>" class="btn btn-info stretched-link">More Detail</a>
+                        <h4 class="card-title"> <?php echo  $print1[$i]['event_name']?></h4>
+                        <p class="card-text">Event Date: <?php echo  $print1[$i]['event_date']?></p>
+                        <p class="card-text">Total Seat Left: <?php echo  $print1[$i]['event_totalseats'] - $countPax ?></p>
+                        <a href="<?php echo Url::to(['site/eventdetails', 'id' => $print1[$i]['event_id']]);?>" class="btn btn-info stretched-link">More Detail</a>
                     </div>
                 </div>
             </div>
+            <?php
+            if( $i >1 && $i/3 == 0){
+                echo "<br><br><br>";
 
-            <div class="col-12 col-lg-4">
+            }
+            }
+            } else {
+                echo "No event found";
+            }
+            ?>
+            <!--<div class="col-12 col-lg-4">
                 <div class="card" style="width:fit-content">
                     <img class="card-img-top" src="https://source.unsplash.com/gpU4HPldblo/350x300" alt="Card image">
                     <div class="card-body">
@@ -130,7 +178,7 @@ $this->title = 'E-Event Ticket';
                 </div>
             </div>
         </div>
-        <br> <br> <br>
+        <br> <br> <br>-->
 
     </div>
 </div>
