@@ -314,16 +314,16 @@ class SiteController extends Controller
     public function actionBooking()
     {
         if(Yii::$app->user->isGuest){
-            Yii::$app->session->setFlash('error', 'Please login to make booking');
+            Yii::$app->session->setFlash('error', 'Please login to buy ticket');
             return $this->redirect(array('site/login'));
         }
         $model = new BookForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($model->booking()) {
-                Yii::$app->session->setFlash('success', 'Your appointment has successfully book.');
+                Yii::$app->session->setFlash('success', 'Your ticket has successfully paid.');
                 return $this->goHome();
             } else {
-                Yii::$app->session->setFlash('error', 'Unable to make appointment');
+                Yii::$app->session->setFlash('error', 'Unable to buy ticket');
             }
         }
         return $this->render('booking', [
