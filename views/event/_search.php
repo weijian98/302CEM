@@ -17,15 +17,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'event_id') ?>
 
+    <?= $form->field($model, 'event_name') ?>
+
     <?= $form->field($model, 'event_date') ?>
 
     <?= $form->field($model, 'event_location') ?>
 
     <?= $form->field($model, 'event_time') ?>
 
-    <?= $form->field($model, 'event_duration') ?>
+    <?php // echo $form->field($model, 'event_duration') ?>
 
     <?php // echo $form->field($model, 'event_totalseats') ?>
+
+    <?php // echo $form->field($model, 'event_info') ?>
+
+    <?php // echo $form->field($model, 'event_organizer') ?>
+
+    <?php // echo $form->field($model, 'event_ticket_price') ?>
+
+    <?php // echo $form->field($model, 'event_picture') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
