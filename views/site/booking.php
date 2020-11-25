@@ -35,7 +35,6 @@ if (isset($event)) {
     }
 }
 ?>
-
 <div class="site-booking">
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -48,7 +47,7 @@ if (isset($event)) {
 
                 <?= $form->field($model, 'available_seat')->hiddenInput(['value'=>$available_seat])->label(false)?>
 
-                <?= $form->field($model, 'booking_date')->hiddenInput(['value'=> date("yyyy-MM-dd")])->label(false)?>
+                <?= $form->field($model, 'booking_date')->hiddenInput(['value'=> date("yy-m-d")])->label(false)?>
 
                 <?= $form->field($model, 'pax_total') ->dropDownList(['1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9'])?>
 
