@@ -21,8 +21,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'booking_date') ?>
 
-    <?= $form->field($model, 'booking_date')-?>
-
     <?= $form->field($model, 'pax_total') ?>
                 
     <?= $form->field($model, 'time')?>

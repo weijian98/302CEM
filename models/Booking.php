@@ -8,15 +8,16 @@ use Yii;
  * This is the model class for table "booking".
  *
  * @property int $booking_id
- * @property int $booking_info_id
  * @property string $booking_date
- * @property int $ticket_count
- * @property int $user_id
- * @property int $pax_total 
- * @property int $time
+ * @property int $pax_total
+ * @property int $event_id
+ * @property string $time
  * @property string $seat_number_row
  * @property string $payment_method
+ * @property int $user_id
+ *
  * @property User $user
+ * @property Event $event
  */
 class Booking extends \yii\db\ActiveRecord
 {
@@ -34,10 +35,13 @@ class Booking extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['booking_info_id', 'ticket_count'], 'required'],
-            [['booking_info_id', 'ticket_count'], 'integer'],
+            [['booking_date', 'pax_total', 'event_id', 'time', 'seat_number_row', 'payment_method', 'user_id'], 'required'],
             [['booking_date'], 'safe'],
+            [['pax_total', 'event_id', 'user_id'], 'integer'],
+            [['time'], 'string', 'max' => 6],
+            [['seat_number_row', 'payment_method'], 'string', 'max' => 10],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['event_id'], 'exist', 'skipOnError' => true, 'targetClass' => Event::className(), 'targetAttribute' => ['event_id' => 'event_id']],
         ];
     }
 
@@ -48,17 +52,16 @@ class Booking extends \yii\db\ActiveRecord
     {
         return [
             'booking_id' => 'Booking ID',
-            'booking_info_id' => 'Booking Info ID',
             'booking_date' => 'Booking Date',
-            'pax_total'=>'Pax',
-            'time'=>'Time',
-            'seat_number_row'=>'Seat Row',
-            'payment_method'=>'Payment Method',
-            'ticket_count' => 'Ticket Count',
+            'pax_total' => 'Pax Total',
+            'event_id' => 'Event ID',
+            'time' => 'Time',
+            'seat_number_row' => 'Seat Number Row',
+            'payment_method' => 'Payment Method',
             'user_id' => 'User ID',
         ];
     }
-    
+
     /**
      * Gets query for [[User]].
      *
@@ -67,5 +70,15 @@ class Booking extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    /**
+     * Gets query for [[Event]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEvent()
+    {
+        return $this->hasOne(Event::className(), ['event_id' => 'event_id']);
     }
 }

@@ -17,8 +17,8 @@ class BookingSearch extends Booking
     public function rules()
     {
         return [
-            [['booking_id', 'booking_info_id', 'ticket_count'], 'integer'],
-            [['booking_date'], 'safe'],
+            [['booking_id', 'pax_total', 'event_id', 'user_id'], 'integer'],
+            [['booking_date', 'time', 'seat_number_row', 'payment_method'], 'safe'],
         ];
     }
 
@@ -56,14 +56,20 @@ class BookingSearch extends Booking
             return $dataProvider;
         }
 
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'booking_id' => $this->booking_id,
-            'booking_info_id' => $this->booking_info_id,
-            'booking_date' => $this->booking_date,
-            'ticket_count' => $this->ticket_count,
-        ]);
+       // grid filtering conditions
+       $query->andFilterWhere([
+        'booking_id' => $this->booking_id,
+        'booking_date' => $this->booking_date,
+        'pax_total' => $this->pax_total,
+        'event_id' => $this->event_id,
+        'user_id' => $this->user_id,
+    ]);
 
-        return $dataProvider;
-    }
+    $query->andFilterWhere(['like', 'time', $this->time])
+        ->andFilterWhere(['like', 'seat_number_row', $this->seat_number_row])
+        ->andFilterWhere(['like', 'payment_method', $this->payment_method]);
+
+    return $dataProvider;
 }
+}
+
