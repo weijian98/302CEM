@@ -13,6 +13,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SignupForm;
 use app\models\BookForm;
+use app\models\User;
 
 class SiteController extends Controller
 {
@@ -316,6 +317,13 @@ class SiteController extends Controller
         if(Yii::$app->user->isGuest){
             Yii::$app->session->setFlash('error', 'Please login to make booking');
             return $this->redirect(array('site/login'));
+        }
+        if(!Yii::$app->user->isGuest){
+            $user = User::findOne(Yii::$app->user->identity->id);
+            if($user->roles == "admin"){
+                Yii::$app->session->setFlash('error', 'Booking only available for user, not admin');
+                return $this->redirect(array('site/login'));
+            }
         }
         $model = new BookForm();
         if ($model->load(Yii::$app->request->post())) {
