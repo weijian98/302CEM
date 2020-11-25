@@ -240,7 +240,15 @@ class SiteController extends Controller
     {
         return $this->render('payment');
     }
-
+    /**
+     * Displays eventpage.
+     *
+     * @return string
+     */
+    public function actionEventdetails()
+    {
+        return $this->render('eventdetails');
+    }
     /**
      * Signs user up.
      *
@@ -305,12 +313,16 @@ class SiteController extends Controller
      */
     public function actionBooking()
     {
+        if(Yii::$app->user->isGuest){
+            Yii::$app->session->setFlash('error', 'Please login to make booking');
+            return $this->redirect(array('site/login'));
+        }
         $model = new BookForm();
-        if ($model->load(Yii::$app->request->post())){
-            if($model->booking()){
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->booking()) {
                 Yii::$app->session->setFlash('success', 'Your appointment has successfully book.');
-                return $this->goHome();     
-            }else{
+                return $this->goHome();
+            } else {
                 Yii::$app->session->setFlash('error', 'Unable to make appointment');
             }
         }

@@ -47,6 +47,7 @@ AppAsset::register($this);
                 ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'Event', 'url' => ['/site/event']],
                 ['label' => 'Contact Us', 'url' => ['/site/contact']],
+                ['label' => 'Announcements', 'url' => ['/site/announcement']],
                 ['label' => 'Signup', 'url' => ['/site/signup']],
                 ['label' => 'LogIn', 'url' => ['/site/login']]
             ],
@@ -58,8 +59,9 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Event', 'url' => ['/site/event']],
-            ['label' => 'Upcoming Event', 'url' => ['/site/bookevent'], 'visible' => !Yii::$app->user->isGuest],
-            ['label' => 'Booking History', 'url' => ['/site/bookinghistory'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Announcement', 'url' => ['/site/announcement']],
+            ['label' => 'Upcoming Event', 'url' => ['/site/bookevent']],
+            ['label' => 'Booking History', 'url' => ['/site/bookinghistory']],
             ['label' => 'Contact Us', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'LogIn', 'url' => ['/site/login']]
@@ -81,6 +83,9 @@ AppAsset::register($this);
             'items' => [
                 ['label' => 'Home', 'url' => ['/site/index']],
                 ['label' => 'About', 'url' => ['/site/about']],
+                ['label' => 'Manage Event', 'url' => ['/event']],
+                ['label' => 'Manage Booking', 'url' => ['/booking']],
+                ['label' => 'Manage Announcement', 'url' => ['/announcement']],
                 Yii::$app->user->isGuest ? (
                 ['label' => 'LogIn', 'url' => ['/site/login']]
                 ) : (
@@ -107,14 +112,13 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
+<div class="clear"></div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; E-Event Ticket <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+<div id="footer" class="footer" style="position: fixed; left:0;bottom:0;width:100%;text-align:center;">
+        <p>&copy; E-Event Ticket <?= date('Y') ?>
+            <br>
+        <?= Yii::powered() ?></p>
+</div>
 
 <?php $this->endBody() ?>
 </body>
