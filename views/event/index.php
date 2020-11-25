@@ -27,11 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'event_id',
+            'event_name',
             'event_date',
             'event_location',
             'event_time',
-            'event_duration',
+            //'event_duration',
             //'event_totalseats',
+            //'event_info:ntext',
+            //'event_organizer:ntext',
+            //'event_ticket_price',
+            //'event_picture:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

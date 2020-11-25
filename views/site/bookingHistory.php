@@ -13,7 +13,6 @@ $this->title = 'Booking History Details';
 <div class="site-bookingHistory">
 
     <?php
-    //$sql = 'select * from booking order by id DESC';
     $booking = Booking::findAll([
         'user_id' => Yii::$app->user->identity->id,
     ]);
