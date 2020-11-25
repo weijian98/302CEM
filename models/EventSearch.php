@@ -18,7 +18,8 @@ class EventSearch extends Event
     {
         return [
             [['event_id', 'event_totalseats'], 'integer'],
-            [['event_date', 'event_location', 'event_time', 'event_duration'], 'safe'],
+            [['event_name', 'event_date', 'event_location', 'event_time', 'event_duration', 'event_info', 'event_organizer', 'event_picture'], 'safe'],
+            [['event_ticket_price'], 'number'],
         ];
     }
 
@@ -63,9 +64,14 @@ class EventSearch extends Event
             'event_time' => $this->event_time,
             'event_duration' => $this->event_duration,
             'event_totalseats' => $this->event_totalseats,
+            'event_ticket_price' => $this->event_ticket_price,
         ]);
 
-        $query->andFilterWhere(['like', 'event_location', $this->event_location]);
+        $query->andFilterWhere(['like', 'event_name', $this->event_name])
+            ->andFilterWhere(['like', 'event_location', $this->event_location])
+            ->andFilterWhere(['like', 'event_info', $this->event_info])
+            ->andFilterWhere(['like', 'event_organizer', $this->event_organizer])
+            ->andFilterWhere(['like', 'event_picture', $this->event_picture]);
 
         return $dataProvider;
     }
