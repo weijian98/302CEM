@@ -35,7 +35,6 @@ if (isset($event)) {
     }
 }
 ?>
-
 <div class="site-booking">
     <h1><?= Html::encode($this->title) ?></h1>
 
