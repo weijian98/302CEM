@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'event_totalseats',
             'event_info:ntext',
             'event_organizer:ntext',
+            'event_total_attendees',
             'event_ticket_price',
             'event_picture:ntext',
         ],
