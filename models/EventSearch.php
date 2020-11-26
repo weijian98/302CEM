@@ -65,6 +65,7 @@ class EventSearch extends Event
             'event_duration' => $this->event_duration,
             'event_totalseats' => $this->event_totalseats,
             'event_ticket_price' => $this->event_ticket_price,
+            'event_total_attendees' => $this->event_total_attendees,
         ]);
 
         $query->andFilterWhere(['like', 'event_name', $this->event_name])

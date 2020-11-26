@@ -25,6 +25,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'event_time') ?>
 
+
     <?php // echo $form->field($model, 'event_duration') ?>
 
     <?php // echo $form->field($model, 'event_totalseats') ?>

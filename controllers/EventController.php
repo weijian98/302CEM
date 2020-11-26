@@ -8,6 +8,7 @@ use app\models\EventSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\Booking;
 
 /**
  * EventController implements the CRUD actions for Event model.
@@ -37,7 +38,29 @@ class EventController extends Controller
     {
         $searchModel = new EventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        foreach ($dataProvider->models as $model) {
+            //your logic
+            if (isset($model)) {
+                $booking = Booking::findAll([
+                    'event_id' => $model['event_id'],
+                ]);
+                $print2 = [];
+                $countPax = 0;
+                if (isset($booking)) {
+                    foreach ($booking as $row) {
+                        $print2[] = $row;
+                    }
+                    $booking1count = count($print2);
+                    for ($i1 = 0;
+                         $i1 < $booking1count;
+                         $i1++) {
+                        $countPax = $countPax + $print2[$i1]['pax_total'];
+                    }
+                    $model->event_total_attendees = $countPax;
+                }
+            }
+            $model->event_total_attendees = $countPax;
+        }
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -119,6 +142,25 @@ class EventController extends Controller
     protected function findModel($id)
     {
         if (($model = Event::findOne($id)) !== null) {
+            if (isset($model)) {
+                $booking = Booking::findAll([
+                    'event_id' => $model['event_id'],
+                ]);
+                $print2 = [];
+                $countPax = 0;
+                if (isset($booking)) {
+                    foreach ($booking as $row) {
+                        $print2[] = $row;
+                    }
+                    $booking1count = count($print2);
+                    for ($i1 = 0;
+                         $i1 < $booking1count;
+                         $i1++) {
+                        $countPax = $countPax + $print2[$i1]['pax_total'];
+                    }
+                    $model->event_total_attendees = $countPax;
+                }
+            }
             return $model;
         }
 

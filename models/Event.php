@@ -14,6 +14,7 @@ use Yii;
  * @property string $event_time
  * @property string $event_duration
  * @property int $event_totalseats
+ * @property int $event_total_attendees
  * @property string $event_info
  * @property string $event_organizer
  * @property float $event_ticket_price
@@ -21,6 +22,10 @@ use Yii;
  */
 class Event extends \yii\db\ActiveRecord
 {
+    /**
+     * {@inheritdoc}
+     */
+    public $event_total_attendees;
     /**
      * {@inheritdoc}
      */
@@ -40,6 +45,7 @@ class Event extends \yii\db\ActiveRecord
             [['event_totalseats'], 'integer'],
             [['event_info', 'event_organizer', 'event_picture'], 'string'],
             [['event_ticket_price'], 'number'],
+            [['event_total_attendees'], 'number'],
             [['event_name'], 'string', 'max' => 100],
             [['event_location'], 'string', 'max' => 52],
         ];
@@ -62,6 +68,7 @@ class Event extends \yii\db\ActiveRecord
             'event_organizer' => 'Event Organizer',
             'event_ticket_price' => 'Event Ticket Price',
             'event_picture' => 'Event Picture',
+            'event_total_attendees' =>'Event Total Attendees',
         ];
     }
 }
