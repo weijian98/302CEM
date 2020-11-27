@@ -16,6 +16,7 @@ $about = About::findOne(1);
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
     <?php
+    if(isset($user)){
     if($user->roles == "admin") {
         ?>
         <a style=" color:inherit; text-decoration: none;" href="<?php echo Url::to(['/about/update?id=1']); ?>">
@@ -23,7 +24,7 @@ $about = About::findOne(1);
         </a>
         <?php
     }
-
+    }
     ?>
     <?php
     echo $about['about'];
